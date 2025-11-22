@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chéribun – Cozy POD Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F7EEDB;
+      --text: #4A4A4A;
+      --accent1: #D0A9A8;
+      --accent2: #9EAB94;
+      --accent3: #A4C9D9;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --font-hand: 'Homemade Apple', cursive;
+      --font-base: 'Quicksand', sans-serif;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-base);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-hand);
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: var(--accent1);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border: 1px solid var(--text);
+      border-radius: 50px;
+      background: transparent;
+      font-family: var(--font-base);
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px var(--shadow);
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--accent1);
+      border-color: var(--accent1);
+      color: #fff;
+      box-shadow: 3px 3px 8px var(--shadow);
+    }
+
+    /* Header */
+    header {
+      background: var(--bg);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(74, 74, 74, 0.1);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      color: var(--accent1);
+      padding: 5px 10px;
+      border: 1px dashed rgba(74, 74, 74, 0.2);
+      border-radius: 5px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: var(--accent2);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+
+    /* Collections Section */
+    .collections {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .collections h2 {
+      font-size: 2.8rem;
+      color: var(--accent1);
+      margin-bottom: 40px;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .collection-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 4px 4px 15px var(--shadow);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(74,74,74,0.1);
+    }
+
+    .collection-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 6px 6px 20px var(--shadow);
+    }
+
+    .collection-card h3 {
+      font-size: 1.8rem;
+      color: var(--accent3);
+      margin: 20px 0 15px 0;
+    }
+
+    .collection-card p {
+      flex-grow: 1;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    /* About / Contact Sections */
+    .preview-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about, .contact {
+      border-radius: 30px;
+      padding: 60px 40px;
+      box-shadow: 5px 5px 20px var(--shadow);
+      color: #fff;
+      margin-bottom: 50px;
+    }
+
+    .about {
+      background: var(--accent3);
+    }
+
+    .contact {
+      background: var(--accent2);
+    }
+
+    .about h2, .contact h2 {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+    }
+
+    .about p, .contact p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+
+    .about .btn, .contact .btn {
+      border-color: #fff;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .about .btn:hover, .contact .btn:hover {
+      background: #fff;
+      color: var(--text);
+      border-color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--bg);
+      border-top: 1px dashed rgba(74, 74, 74, 0.1);
+      font-size: 0.9rem;
+      color: rgba(74, 74, 74, 0.7);
+    }
+
+    .social {
+      margin-top: 15px;
+      font-size: 1.5rem;
+    }
+
+    .social a {
+      margin: 0 12px;
+      color: var(--accent2);
+      transition: color 0.3s;
+    }
+
+    .social a:hover {
+      color: var(--accent1);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      .about, .contact {
+        padding: 40px 20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">Chéribun</div>
+      <nav aria-label="Main Navigation">
+        <a href="#hero">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="container">
+      <h1>Welcome to Chéribun</h1>
+      <p>Cozy, handmade, and ready to delight.</p>
+      <a href="#collections" class="btn">Explore Collections</a>
+    </div>
+  </section>
+
+  <section id="collections" class="collections">
+    <div class="container">
+      <h2>Featured Lines</h2>
+      <div class="collection-grid">
+        <div class="collection-card">
+          <h3>Bestsellers</h3>
+          <p>Our most loved cozy designs — perfect for any season.</p>
+          <a href="shop.html" class="btn">Shop Bestsellers</a>
+        </div>
+        <div class="collection-card">
+          <h3>New Arrivals</h3>
+          <p>Fresh designs that just dropped — be the first to get them.</p>
+          <a href="shop.html" class="btn">Shop New Arrivals</a>
+        </div>
+        <div class="collection-card">
+          <h3>Seasonal Picks</h3>
+          <p>Soft seasonal favorites — curated with care for every mood.</p>
+          <a href="shop.html" class="btn">Shop Seasonal Picks</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="preview-section">
+    <div class="container about">
+      <h2>About Chéribun</h2>
+      <p>Chéribun is a cozy POD store that offers soft, handmade-inspired designs. Each item is created with gentle colors and warm vibes — made to bring calmness and beauty into everyday life.</p>
+      <a href="about.html" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <section id="contact" class="preview-section">
+    <div class="container contact">
+      <h2>Contact Us</h2>
+      <p>If you have questions, custom requests, or just want to say hello, we’d love to hear from you.</p>
+      <a href="contact.html" class="btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="social">
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+        <a href="#" aria-label="Email">💌</a>
+      </div>
+      <p>Chéribun &copy; 2025 — Cozy POD Store</p>
+    </div>
+  </footer>
+
+</body>
+</html>
